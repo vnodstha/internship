@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WCSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="wcs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="First Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Preferred Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="255" />
+          <Property Name="Employment Status" Type="nvarchar" MaxLength="255" />
+          <Property Name="Employment Category" Type="nvarchar" MaxLength="255" />
+          <Property Name="Work Level" Type="nvarchar" MaxLength="255" />
+          <Property Name="Position Number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Work Phone" Type="nchar" MaxLength="10" />
+          <Property Name="Phone Extension" Type="nvarchar" MaxLength="255" />
+          <Property Name="Managers Number" Type="nvarchar" MaxLength="255" />
+          <Property Name="Managers Position" Type="nvarchar" MaxLength="255" />
+          <Property Name="Service Line" Type="nvarchar" MaxLength="255" />
+          <Property Name="Service Area" Type="nvarchar" MaxLength="255" />
+          <Property Name="Section" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cost Centre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Location" Type="nvarchar" MaxLength="255" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WCSModelStoreContainer">
+          <EntitySet Name="wcs" EntityType="Self.wcs" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WCSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="wc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="First_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Preferred_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Employment_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Employment_Category" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Work_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Position_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Work_Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Phone_Extension" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Managers_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Managers_Position" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Service_Line" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Service_Area" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Section" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cost_Centre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="WCSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="wcs" EntityType="Self.wc" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WCSModelStoreContainer" CdmEntityContainer="WCSEntities">
+          <EntitySetMapping Name="wcs">
+            <EntityTypeMapping TypeName="WCSModel.wc">
+              <MappingFragment StoreEntitySet="wcs">
+                <ScalarProperty Name="First_Name" ColumnName="First Name" />
+                <ScalarProperty Name="Preferred_Name" ColumnName="Preferred Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Employment_Status" ColumnName="Employment Status" />
+                <ScalarProperty Name="Employment_Category" ColumnName="Employment Category" />
+                <ScalarProperty Name="Work_Level" ColumnName="Work Level" />
+                <ScalarProperty Name="Position_Number" ColumnName="Position Number" />
+                <ScalarProperty Name="Work_Phone" ColumnName="Work Phone" />
+                <ScalarProperty Name="Phone_Extension" ColumnName="Phone Extension" />
+                <ScalarProperty Name="Managers_Number" ColumnName="Managers Number" />
+                <ScalarProperty Name="Managers_Position" ColumnName="Managers Position" />
+                <ScalarProperty Name="Service_Line" ColumnName="Service Line" />
+                <ScalarProperty Name="Service_Area" ColumnName="Service Area" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Cost_Centre" ColumnName="Cost Centre" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

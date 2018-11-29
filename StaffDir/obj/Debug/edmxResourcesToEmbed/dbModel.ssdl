@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WCSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="wcs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="First Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Preferred Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="255" />
+    <Property Name="Employment Status" Type="nvarchar" MaxLength="255" />
+    <Property Name="Employment Category" Type="nvarchar" MaxLength="255" />
+    <Property Name="Work Level" Type="nvarchar" MaxLength="255" />
+    <Property Name="Position Number" Type="nvarchar" MaxLength="255" />
+    <Property Name="Work Phone" Type="nchar" MaxLength="10" />
+    <Property Name="Phone Extension" Type="nvarchar" MaxLength="255" />
+    <Property Name="Managers Number" Type="nvarchar" MaxLength="255" />
+    <Property Name="Managers Position" Type="nvarchar" MaxLength="255" />
+    <Property Name="Service Line" Type="nvarchar" MaxLength="255" />
+    <Property Name="Service Area" Type="nvarchar" MaxLength="255" />
+    <Property Name="Section" Type="nvarchar" MaxLength="255" />
+    <Property Name="Cost Centre" Type="nvarchar" MaxLength="255" />
+    <Property Name="Location" Type="nvarchar" MaxLength="255" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="WCSModelStoreContainer">
+    <EntitySet Name="wcs" EntityType="Self.wcs" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

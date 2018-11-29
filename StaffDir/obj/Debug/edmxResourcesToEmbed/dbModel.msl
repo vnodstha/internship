@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WCSModelStoreContainer" CdmEntityContainer="WCSEntities">
+    <EntitySetMapping Name="wcs">
+      <EntityTypeMapping TypeName="WCSModel.wc">
+        <MappingFragment StoreEntitySet="wcs">
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Preferred_Name" ColumnName="Preferred Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Employment_Status" ColumnName="Employment Status" />
+          <ScalarProperty Name="Employment_Category" ColumnName="Employment Category" />
+          <ScalarProperty Name="Work_Level" ColumnName="Work Level" />
+          <ScalarProperty Name="Position_Number" ColumnName="Position Number" />
+          <ScalarProperty Name="Work_Phone" ColumnName="Work Phone" />
+          <ScalarProperty Name="Phone_Extension" ColumnName="Phone Extension" />
+          <ScalarProperty Name="Managers_Number" ColumnName="Managers Number" />
+          <ScalarProperty Name="Managers_Position" ColumnName="Managers Position" />
+          <ScalarProperty Name="Service_Line" ColumnName="Service Line" />
+          <ScalarProperty Name="Service_Area" ColumnName="Service Area" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Cost_Centre" ColumnName="Cost Centre" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>\\wcs-2012r2-svr\homedrives%24\vshrestha\Desktop\Staff_setup\|\\wcs-2012r2-svr\homedrives%24\vshrestha\Desktop\staff_dir_setup\|\\wcs-2012r2-svr\homedrives%24\vshrestha\Desktop\Staff_Dir\|\\wcs-2012r2-svr\homedrives%24\vshrestha\Desktop\Staff_dir\|publish\</PublishUrlHistory>
+    <InstallUrlHistory />
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+  </PropertyGroup>
+</Project>

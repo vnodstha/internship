@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WCSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="wc">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="First_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Preferred_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Employment_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Employment_Category" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Work_Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Position_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Work_Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Phone_Extension" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Managers_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Managers_Position" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Service_Line" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Service_Area" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Section" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Cost_Centre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityContainer Name="WCSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="wcs" EntityType="Self.wc" />
+  </EntityContainer>
+</Schema>

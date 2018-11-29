@@ -1,0 +1,127 @@
+﻿<Window x:Class="StaffDir.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StaffDir"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Title="Staff Directory" Height="889.6" Width="1457.5" Loaded="Window_Loaded"
+        >
+    <Window.Resources>
+        <local:WCSDataSet x:Key="wcsDataSet"/>
+        <CollectionViewSource x:Key="wcs_testViewSource" Source="{Binding wcs_test, Source={StaticResource wcsDataSet}}"/>
+        <CollectionViewSource x:Key="numberViewSource" Source="{Binding number, Source={StaticResource wcsDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource wcs_testViewSource}" Background="AliceBlue" Margin="0,0,0,-3" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="textBox_PreName" HorizontalAlignment="Left" Height="29" Margin="137,164,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" TextChanged="textBox_PreName_TextChanged" FontFamily="Century Gothic" />
+        <Grid x:Name="grid1" Margin="1166,200,0,199" Grid.Row="2" HorizontalAlignment="Left" Width="272" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="134"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="435"/>
+            </Grid.RowDefinitions>
+            <Label Content="First name:" Grid.Column="0" Margin="7,4,49,406" FontFamily="Century Gothic" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+            <TextBox x:Name="first_nameTextBox" Margin="129,4,-127,406" Text="{Binding ElementName=wcs_testDataGrid,Path=SelectedItem.Preferred_Name,NotifyOnValidationError=true, ValidatesOnExceptions=true, Mode=OneWay}" IsReadOnly="True" FontFamily="Century Gothic"/>
+            <Label Content="Last Name:" Margin="7,41,39,369" FontFamily="Century Gothic" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+            <TextBox x:Name="last_NameTextBox" Margin="129,41,-127,369" Text="{Binding ElementName=wcs_testDataGrid,Path=SelectedItem.Surname,NotifyOnValidationError=true, ValidatesOnExceptions=true, Mode=OneWay}" IsReadOnly="True" FontFamily="Century Gothic"/>
+            <Label Content="Location:" Grid.Column="0" Margin="3,231,59,179" FontFamily="Century Gothic" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+            <TextBox x:Name="locationTextBox" Margin="129,231,-127,179" Text="{Binding ElementName=wcs_testDataGrid,Path=SelectedItem.Location, Mode=OneWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True" FontFamily="Century Gothic"/>
+            <Label Content="Position Name:" Margin="3,79,11,331" FontFamily="Century Gothic" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+            <TextBox x:Name="employment_StatusTextBox" Margin="129,79,-127,299" Text="{Binding ElementName=wcs_testDataGrid,Path=SelectedItem.Position_Number, Mode=OneWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True" TextWrapping="WrapWithOverflow" FontFamily="Century Gothic"/>
+            <Label Content="Manager s Name:" Grid.Column="0" Margin="3,352,11,58" FontFamily="Century Gothic" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+            <TextBox x:Name="manager_s_NameTextBox" Margin="128,352,-127,58" Text="{Binding ElementName=wcs_testDataGrid,Path=SelectedItem.Managers_Number, Mode=OneWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True" FontFamily="Century Gothic"/>
+            <Label Content="Manager s Position:" Grid.Column="0" Margin="3,394,10,16" FontFamily="Century Gothic" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+            <TextBox x:Name="manager_s_PositionTextBox" Margin="129,394,-127,-16" Text="{Binding ElementName=wcs_testDataGrid,Path=SelectedItem.Managers_Position, Mode=OneWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True" TextWrapping="WrapWithOverflow" FontFamily="Century Gothic"/>
+            <Label Content="Phone Extension:" Grid.Column="0" Margin="3,310,20,100" FontFamily="Century Gothic" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+            <TextBox x:Name="phone_ExtensionTextBox" Margin="129,310,-127,100" Text="{Binding ElementName=wcs_testDataGrid,Path=SelectedItem.Phone_Extension, Mode=OneWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True" FontFamily="Century Gothic"/>
+            <Label Content="Mobile:" Grid.Column="0" Margin="3,270,76,140" FontFamily="Century Gothic" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+            <TextBox x:Name="work_PhoneTextBox" Margin="129,271,-127,140" Text="{Binding ElementName=wcs_testDataGrid,Path=SelectedItem.Work_Phone, Mode=OneWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True" FontFamily="Century Gothic"/>
+            <Label Content="Service Area:" Grid.Column="0" Margin="3,191,43,219" FontFamily="Century Gothic" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+            <TextBox x:Name="service_AreaTextBox" Margin="129,191,-127,219" Text="{Binding ElementName=wcs_testDataGrid,Path=SelectedItem.Service_Area, Mode=OneWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True" FontFamily="Century Gothic"/>
+            <Label Content="Service Line:" Grid.Column="0" Margin="3,151,44,259" FontFamily="Century Gothic" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+            <TextBox x:Name="service_LineTextBox" Margin="128,151,-127,259" Text="{Binding ElementName=wcs_testDataGrid,Path=SelectedItem.Service_Line, Mode=OneWay,NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsReadOnly="True" FontFamily="Century Gothic"/>
+        </Grid>
+
+        <Button x:Name="refersh" Content="Refresh" HorizontalAlignment="Left" Margin="1248,166,0,0" VerticalAlignment="Top" Width="96" Click="refersh_Click" Height="27" Grid.Row="2" RenderTransformOrigin="0.427,0.9" FontFamily="Century Gothic"/>
+        <TextBox x:Name="textBox_LastName" HorizontalAlignment="Left" Height="29" Margin="358,164,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" TextChanged="textBox_LastName_TextChanged" FontFamily="Century Gothic"   />
+        <TextBox x:Name="textBox_ManagerName" HorizontalAlignment="Left" Height="29" Margin="620,164,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" TextChanged="textBox_ManagerName_TextChanged" FontFamily="Century Gothic"  />
+        <Label x:Name="First_nameLabel_Copy" Content="Last Name:" HorizontalAlignment="Left" Margin="279,166,0,0" Grid.Row="2" VerticalAlignment="Top" Height="29" Width="74" Background="LightSkyBlue" FontFamily="Century Gothic"/>
+        <Label x:Name="First_nameLabel_Copy1" Content="Manager's Name:" HorizontalAlignment="Left" Margin="501,164,0,0" Grid.Row="2" VerticalAlignment="Top" Height="29" Width="114" Background="LightSkyBlue" FontFamily="Century Gothic"/>
+        <DataGrid x:Name="wcs_testDataGrid" AutoGenerateColumns="False"  EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource wcs_testViewSource}}" Margin="10,200,287,200" Grid.RowSpan="3" RowDetailsVisibilityMode="VisibleWhenSelected" IsSynchronizedWithCurrentItem="False" IsReadOnly="True" FontFamily="Century Gothic" >
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="First_NameColumn" Binding="{Binding  First_Name}" Header="First Name" Width="Auto"/>
+                <DataGridTextColumn x:Name="preferred_NameColumn" Binding="{Binding  Preferred_Name}" Header="Preferred Name" Width="Auto"/>
+                <DataGridTextColumn x:Name="last_NameColumn" Binding="{Binding Surname}" Header="Last Name" Width="Auto"/>
+                <DataGridTextColumn x:Name="position_NumberColumn" Binding="{Binding Position_Number}" Header="Position Name" Width="Auto"/>
+                <DataGridTextColumn x:Name="work_PhoneColumn" Binding="{Binding Work_Phone}" Header="Mobile" Width="Auto"/>
+                <DataGridTextColumn x:Name="locationColumn" Binding="{Binding Location}" Header="Location" Width="Auto"/>
+                <DataGridTextColumn x:Name="phone_ExtensionColumn" Binding="{Binding Phone_Extension}" Header="Phone Extension" Width="Auto"/>
+                <DataGridTextColumn x:Name="managers_NameColumn" Binding="{Binding Managers_Number}" Header="Managers Name" Width="Auto"/>
+                <DataGridTextColumn x:Name="managers_PositionColumn" Binding="{Binding Managers_Position}" Header="Managers Position" Width="Auto"/>
+                <DataGridTextColumn x:Name="service_LineColumn" Binding="{Binding Service_Line}" Header="Service Line" Width="Auto"/>
+                <DataGridTextColumn x:Name="service_AreaColumn" Binding="{Binding Service_Area}" Header="Service Area" Width="Auto"/>
+                <DataGridTextColumn x:Name="sectionColumn" Binding="{Binding Section}" Header="Section" Width="Auto"/>
+                <DataGridTextColumn x:Name="cost_CentreColumn" Binding="{Binding Cost_Centre}" Header="Cost Centre" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Image x:Name="image" Height="101" Margin="315,10,315,0" Grid.RowSpan="3" VerticalAlignment="Top" Source="img\wcs.png"/>
+        <GroupBox x:Name="DEPARTMENT" Header="DEPARTMENT" Margin="10,664,18,8" Grid.Row="2"  >
+            <Grid>
+
+
+                <Label x:Name="itlabel" Content="IT SUPPORT" HorizontalAlignment="Left" Margin="67,11,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Image x:Name="image1" Source="img\IS.png" HorizontalAlignment="Left" Height="50" Margin="12,12,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label x:Name="itlabel_Copy" Content="3333" HorizontalAlignment="Left" Margin="67,35,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Label x:Name="CRlabel" Content="COMMUNITY ROOM" HorizontalAlignment="Left" Margin="241,11,0,0" VerticalAlignment="Top" Width="126" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Image x:Name="CRimage" Source="img\community.png" HorizontalAlignment="Left" Height="50" Margin="186,12,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label x:Name="CRlabel_Copy" Content="9501" HorizontalAlignment="Left" Margin="241,35,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Label x:Name="YClabel" Content="YOUTH CENTRE CAFE" HorizontalAlignment="Left" Margin="67,99,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Image x:Name="YCimage" Source="img\youthm.png" HorizontalAlignment="Left" Height="50" Margin="12,100,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label x:Name="YClabel_Copy" Content="6902" HorizontalAlignment="Left" Margin="67,124,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Label x:Name="LNlabel" Content="LOLLIPOP NURSERY" HorizontalAlignment="Left" Margin="451,11,0,0" VerticalAlignment="Top" Width="123" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Image x:Name="LNimage" Source="img\nursery.png" HorizontalAlignment="Left" Height="50" Margin="394,12,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label x:Name="LNlabel_Copy" Content="6806" HorizontalAlignment="Left" Margin="451,36,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Label x:Name="LTlabel" Content="LOLLIPOP TODDLERS" HorizontalAlignment="Left" Margin="270,99,0,0" VerticalAlignment="Top" Width="127" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Image x:Name="LTimage" Source="img\toddler.png" HorizontalAlignment="Left" Height="50" Margin="215,99,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label x:Name="LTlabel_Copy" Content="6807" HorizontalAlignment="Left" Margin="270,123,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Label x:Name="LHDlabel" Content="LOLLIPOP HOT DESK" HorizontalAlignment="Left" Margin="650,12,0,0" VerticalAlignment="Top" Width="126" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Image x:Name="LHDimage" Source="img\desk.png" HorizontalAlignment="Left" Height="50" Margin="595,12,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label x:Name="LHDlabel_Copy" Content="6905" HorizontalAlignment="Left" Margin="650,35,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Label x:Name="LPSlabel" Content="LOLLIPOP PRESCHOOL" HorizontalAlignment="Left" Margin="479,100,0,0" VerticalAlignment="Top" Width="137" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Image x:Name="LPSimage" Source="img\preschool.png" HorizontalAlignment="Left" Height="50" Margin="424,100,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label x:Name="LPSlabel_Copy" Content="6808" HorizontalAlignment="Left" Margin="480,125,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Label x:Name="LRlabel" Content="LOLLIPOP RECEPTION" HorizontalAlignment="Left" Margin="897,11,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Image x:Name="LRmage" Source="img\reception.png" HorizontalAlignment="Left" Height="50" Margin="842,12,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="50"/>
+                <Label x:Name="LRlabel_Copy" Content="6802" HorizontalAlignment="Left" Margin="897,35,0,0" Grid.Row="2" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Label x:Name="LOlabel" Content="LOLLIPOP OFFICE" HorizontalAlignment="Left" Margin="687,100,0,0" VerticalAlignment="Top" Width="116" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Image x:Name="LOimage" Source="img\office.png" HorizontalAlignment="Left" Height="50" Margin="632,100,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label x:Name="LOlabel_Copy" Content="6817" HorizontalAlignment="Left" Margin="687,125,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Label x:Name="WCSlabel" Content="WCS RECEPTION" HorizontalAlignment="Left" Margin="897,99,0,0" VerticalAlignment="Top" Width="116" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+                <Image x:Name="WCSimage" Source="img\reception.png" HorizontalAlignment="Left" Height="50" Margin="842,100,0,0" VerticalAlignment="Top" Width="50"/>
+                <Label x:Name="WCSlabel_Copy" Content="6801" HorizontalAlignment="Left" Margin="897,123,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.904,0.538" FontWeight="Bold" FontFamily="Century Gothic"/>
+
+            </Grid>
+        </GroupBox>
+        <Label x:Name="position_label" Content="Position:" HorizontalAlignment="Left" Margin="760,164,0,0" Grid.Row="2" VerticalAlignment="Top" Height="29" Width="56" Background="LightSkyBlue" FontFamily="Century Gothic"/>
+        <TextBox x:Name="textBox_Pos" HorizontalAlignment="Left" Height="29" Margin="825,164,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" TextChanged="textBox_Pos_TextChanged" FontFamily="Century Gothic"  />
+        <Label x:Name="location_label" Content="Location:" HorizontalAlignment="Left" Margin="965,164,0,0" Grid.Row="2" VerticalAlignment="Top" Height="29" Width="65" Background="LightSkyBlue" FontFamily="Century Gothic"/>
+        <TextBox x:Name="textBox_location" HorizontalAlignment="Left" Height="29" Margin="1039,166,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" TextChanged="textBox_location_TextChanged" FontFamily="Century Gothic" />
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,166,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Height="27" SelectedIndex="1" BorderBrush="{DynamicResource {x:Static SystemColors.MenuHighlightBrushKey}}" Background="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}" FontFamily="Century Gothic">
+            <ComboBoxItem Content="Preferred Name" HorizontalAlignment="Left" Width="118" Name="PreName"/>
+            <ComboBoxItem Content="First Name" HorizontalAlignment="Left" Width="118" Name="FirName" />
+        </ComboBox>
+        <Image x:Name="image2" HorizontalAlignment="Left" Height="164" Margin="1166,677,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="248"  Source="img\wcsl.png"/>
+
+
+    </Grid>
+</Window>
